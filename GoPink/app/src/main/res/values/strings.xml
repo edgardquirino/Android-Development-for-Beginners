@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Go Pink</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="splashImgView">splasgImgView</string>
+    <string name="title_activity_self_exam">SelfExamActivity</string>
+    <string name="stepOne_actionBar">Step 1: Look at Yourself</string>
+    <string name="stepone">
+                Look at your breasts in the mirror, as depicted in the figure.
+                At this point you should be looking for:\n
+                     &#8226;Dimpling, puckering, or bulging of the skin;\n
+                     &#8226;A nipple that has changed position or an inverted nipple;\n
+                     &#8226;Redness, soreness, rash, or swelling.\n
+                If you notice any of the aforementioned items, bring them to your doctor\'s attention.
+    </string>
+</resources>
