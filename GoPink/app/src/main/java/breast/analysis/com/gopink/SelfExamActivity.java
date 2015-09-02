@@ -2,20 +2,22 @@ package breast.analysis.com.gopink;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 public class SelfExamActivity extends AppCompatActivity {
     int fragmentStep = 1;
     private float x1, x2;
-    static final int MIN_DISTANCE = 150;
+    private static final int MIN_DISTANCE = 150;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_exam);
+        setTutorialStep(fragmentStep);
     }
 
 
@@ -55,14 +57,18 @@ public class SelfExamActivity extends AppCompatActivity {
                 x2 = event.getX();
                 float deltaX = x2 - x1;
                 if (Math.abs(deltaX) > MIN_DISTANCE) {
+                    Log.i("COUNTER",String.valueOf(fragmentStep));
                     // Left to Right swipe action
                     if (x2 > x1) {
-                        Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show();
+                        fragmentStep = fixTutorialStepCounter(--fragmentStep);
+                        setTutorialStep(fragmentStep);
                     }
 
                     // Right to left swipe action
                     else {
-                        Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show();
+                        fragmentStep=fixTutorialStepCounter(++fragmentStep);
+                        setTutorialStep(fragmentStep);
+
                     }
                 } else {
                     // consider as something else - a screen tap for example
@@ -70,6 +76,18 @@ public class SelfExamActivity extends AppCompatActivity {
                 break;
         }
         return super.onTouchEvent(event);
+    }
+
+    private void setTutorialStep(int tutorialStep) {
+        ImageView instructionImageView = (ImageView) findViewById(R.id.instructionImageView);
+        SelfExamActivityFragment fragment = (SelfExamActivityFragment) getSupportFragmentManager().findFragmentById(R.id.breastAnalysisFragment);
+        fragment.setResources(tutorialStep, instructionImageView);
+    }
+
+    private int fixTutorialStepCounter(int counter) {
+        if (counter > 6) counter = 1;
+        else if (counter < 1) counter = 1;
+        return counter;
     }
 
 }

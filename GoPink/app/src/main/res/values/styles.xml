@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
-    <color name="textViewColor">#F06292</color>
+    <color name="primaryBackgroundColor">#F06292</color>
     <color name="textColor">#FFFFFF</color>
     <color name="actionBarColor">#E91E63</color>
     <color name="statusBarColor">#C2185B</color>
-    <!-- ActionBar styles -->
+    <!-- ActionBar styles F06292 -->
 
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here.-->

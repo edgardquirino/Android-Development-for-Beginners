@@ -18,7 +18,6 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         fullScreenCall();
         setContentView(R.layout.activity_splash_screen);
-
         startAnimation();
     }
 
